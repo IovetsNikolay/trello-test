@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TrelloAutoTest">
+    <test name="TrelloTest">
+        <classes>
+            <class name="HomeWorkTests.LoginTest"/>
+            <class name="HomeWorkTests.CreateBoardTest"/>
+            <class name="HomeWorkTests.PrivatePublicBoardTest"/>
+            <class name="HomeWorkTests.FavoriteBoardsTest"/>
+        </classes>
+    </test>
+</suite>
