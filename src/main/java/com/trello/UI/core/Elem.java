@@ -90,7 +90,11 @@ public class Elem {
     }
 
     public String getAttribute(String attributeTitle) {
-        return driver(). findElement(by).getAttribute(attributeTitle);
+        return driver().findElement(by).getAttribute(attributeTitle);
+    }
+
+    public String getText() {
+        return driver().findElement(by).getText();
     }
 
     public void moveToElem() {

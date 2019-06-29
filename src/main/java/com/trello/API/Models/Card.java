@@ -9,6 +9,7 @@ public class Card {
     public String name;
     public String id;
     public String desc;
+    public String due;
     public List<CardLabel> labels = new ArrayList<>();
 
     @Override

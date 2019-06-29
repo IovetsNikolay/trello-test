@@ -1,6 +1,7 @@
 package com.trello.API.Services;
 
 import com.trello.API.Models.Card;
+import com.trello.API.Models.CheckList;
 import com.trello.API.Models.Members;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -27,4 +28,7 @@ public interface CardService {
 
     @GET("cards/{id}/members")
     Call<List<Members>> getMembersList(@Path("id") String id);
+
+    @GET("cards/{id}/checklists")
+    Call<List<CheckList>> getChecklistList(@Path("id") String id);
 }
