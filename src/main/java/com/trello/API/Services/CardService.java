@@ -13,6 +13,9 @@ public interface CardService {
     @GET("lists/{id}/cards")
     Call<List<Card>> getCards(@Path("id") String id);
 
+    @GET("cards/{id}")
+    Call<Card> getCard(@Path("id") String id);
+
     @POST("cards")
     Call<Card> createCard(@Query("name") String name, @Query("idList") String idList);
 

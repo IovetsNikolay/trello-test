@@ -1,5 +1,6 @@
 package HomeWorkTests;
 
+import com.trello.API.Models.CardLabel;
 import com.trello.API.Models.Members;
 import com.trello.UI.Pages.BoardsListPage;
 import com.trello.UI.Pages.LoginPage;
@@ -28,6 +29,13 @@ public class CardTest extends BrowserFactory {
     public void addMembers() throws IOException {
         Members memberCreatedUi = cardModal.addMember();
         Members memberFromApi = cardModal.getMemberApi(cardId);
-        Assert.assertEquals(memberCreatedUi, memberFromApi, "Member create from UI is not equal API get member");
+        Assert.assertEquals(memberCreatedUi, memberFromApi, "Member created from UI is not equals API get member");
+    }
+
+    @Test
+    public void AddLabel() throws IOException {
+        CardLabel labelCreatedUi = cardModal.addLabel();
+        CardLabel labelFromApi = cardModal.getLabelApi(cardId);
+        Assert.assertEquals(labelCreatedUi, labelFromApi, "Label created from UI is not equals API get label");
     }
 }

@@ -22,9 +22,7 @@ public class LabelServiceClass {
     public void setUp() throws IOException {
         boardList = client.boardsService.getMembersBoards("mykola175").execute().body();
         listOnBoards = client.listsService.getLists(boardList.get(0).id).execute().body();
-
     }
-
 
     @Test
     public void getLabelsList() throws IOException {
@@ -33,18 +31,18 @@ public class LabelServiceClass {
         cardLabels.forEach(System.out::println);
     }
 
-    @Test(dependsOnMethods = "getLabelsList")
+//    @Test(dependsOnMethods = "getLabelsList")
     public void createLabel() throws IOException {
         cardLabel = client.labelsService.createLabel("New Label", blue, boardList.get(0).id).execute().body();
     }
 
-    @Test(dependsOnMethods = "createLabel")
+//    @Test(dependsOnMethods = "createLabel")
     public void modifyLabel() throws IOException {
         cardLabel.color = "red";
         cardLabel = client.labelsService.modifyLabel(cardLabel.id, cardLabel).execute().body();
     }
 
-    @Test(dependsOnMethods = "modifyLabel")
+//    @Test(dependsOnMethods = "modifyLabel")
     public void deleteLabel() throws IOException {
         client.labelsService.deleteLabel(cardLabel.id).execute();
     }
