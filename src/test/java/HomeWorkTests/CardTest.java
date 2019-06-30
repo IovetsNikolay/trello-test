@@ -1,8 +1,6 @@
 package HomeWorkTests;
 
-import com.trello.API.Models.CardLabel;
-import com.trello.API.Models.CheckList;
-import com.trello.API.Models.Members;
+import com.trello.API.Models.*;
 import com.trello.UI.Pages.BoardsListPage;
 import com.trello.UI.Pages.LoginPage;
 import com.trello.UI.Pages.Modals.CardModal;
@@ -15,8 +13,8 @@ import static com.trello.UI.core.Constants.*;
 
 public class CardTest extends BrowserFactory {
 
-    CardModal cardModal = new CardModal();
-    String cardId;
+    private CardModal cardModal = new CardModal();
+    private String cardId;
 
     @BeforeTest
     public void login() throws IOException, InterruptedException {
@@ -54,10 +52,28 @@ public class CardTest extends BrowserFactory {
         Assert.assertTrue(dueDateFromApi.equals(DUE_DATE_DEFAULT_API_VALUE), "Due Date created from UI is not equals API get Due Date");
     }
 
-    @Test(dependsOnMethods = "adDueDate")
+    @Test(dependsOnMethods = "addDueDate")
     public void addAttachment() throws IOException {
         Attachment attachmentCreatedUi = cardModal.addAttachment();
         Attachment attachmentFromApi = cardModal.getAttachmentApi(cardId);
         Assert.assertEquals(attachmentCreatedUi, attachmentFromApi, "Attachment created from UI is not equals API get attachment");
+    }
+
+    @Test(dependsOnMethods = "addAttachment")
+    public void moveCard() throws IOException {
+        cardModal.moveCard();
+        Assert.assertTrue(cardModal.checkThatCardMoved(cardId), "Card is not moved to another list");
+    }
+
+    @Test(dependsOnMethods = "moveCard")
+    public void copyCard() throws IOException {
+        cardModal.copyCard();
+        Assert.assertTrue(cardModal.checkThatCardCopied(cardId), "Card is not copied to another list");
+    }
+
+    @Test(dependsOnMethods = "copyCard")
+    public void unsubscribeCard() throws IOException {
+        cardModal.sunscribeCard();
+        Assert.assertFalse(cardModal.getSunscribeStatusApi(cardId));
     }
 }

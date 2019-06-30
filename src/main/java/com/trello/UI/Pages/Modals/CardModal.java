@@ -4,7 +4,15 @@ import com.trello.API.Models.*;
 import com.trello.API.TrelloRestClient;
 import com.trello.UI.core.Elem;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+
+import static com.trello.UI.core.BrowserFactory.getWebDriverWait;
 import static com.trello.UI.core.Constants.*;
+import static java.time.Duration.ofMillis;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,6 +39,22 @@ public class CardModal {
     private Elem dueDateSaveBtn = new Elem(By.xpath("//input[@class='primary wide confirm']"));
     private Elem dueDateBlock = new Elem(By.xpath("//span[@class='js-date-text card-detail-due-date-text js-details-edit-due-date']"));
     private Elem dueDateCheckBox = new Elem(By.xpath("//span[@class='card-detail-badge-due-date-complete-box js-card-detail-due-date-badge-complete js-details-toggle-due-date-complete']"));
+    private Elem attachmentBtn = new Elem(By.xpath("//a[@class='button-link js-attach']"));
+    private Elem attachLinkInput = new Elem(By.xpath("//input[@id='addLink']"));
+    private Elem attachNameInput = new Elem(By.xpath("//input[@id='nameLink']"));
+    private Elem attachBtn = new Elem(By.xpath("//input[@class='js-add-attachment-url']"));
+    private Elem attachmentLinkPreview = new Elem(By.xpath("//a[@class='attachment-thumbnail-preview']"));
+    private Elem attachmentName = new Elem(By.xpath("//span[@class='attachment-thumbnail-name']"));
+    private Elem moveBtn = new Elem(By.xpath("//a[@class='button-link js-move-card']"));
+    private Elem moveListSelect = new Elem(By.xpath("//select[@class='js-select-list']"));
+    private Elem moveSubmitBtn = new Elem(By.xpath("//input[@class='primary wide js-submit']"));
+    private Elem copyBtn = new Elem(By.xpath("//a[@class='button-link js-copy-card']"));
+    private Elem copyNameInput = new Elem(By.xpath("//textarea[@class='js-autofocus']"));
+    private Elem copySelect = new Elem(By.xpath("//select[@class='js-select-list']"));
+    private Elem copyCreateCardBtn = new Elem(By.xpath("//input[@class='primary wide js-submit']"));
+    private Elem sunscribeBtn = new Elem(By.xpath("//a[@class='button-link toggle-button is-on js-unsubscribe']"));
+    private Elem archiveBtn = new Elem(By.xpath("//a[@class='button-link js-archive-card']"));
+    private Elem unarchiveBtn = new Elem(By.xpath("//a[@class='button-link js-unarchive-card']']"));
 
     TrelloRestClient client = new TrelloRestClient();
 
@@ -92,8 +116,85 @@ public class CardModal {
     }
 
     public String getDueDate(String cardId) throws IOException {
-        Card card = new Card();
-        card = client.cardService.getCard(cardId).execute().body();
+        Card card = client.cardService.getCard(cardId).execute().body();
         return card.due;
+    }
+
+    public Attachment addAttachment() {
+        Attachment attachment = new Attachment();
+        attachmentBtn.click();
+        attachLinkInput.type(ATTACHMENT_LINK_DEFAULT_VALUE);
+        attachNameInput.type(ATTACHMENT_NAME_DEFAULT_VALUE);
+        attachBtn.click();
+        attachmentLinkPreview.isPresent(4);
+        attachment.url = attachmentLinkPreview.getAttribute("href");
+        attachment.name = attachmentName.getText();
+        return attachment;
+    }
+
+    public Attachment getAttachmentApi(String cardId) throws IOException {
+        return client.cardService.getAttachmentsList(cardId).execute().body().get(0);
+    }
+
+
+    public List<ListOnBoard> getListOnBoardList() throws IOException {
+        List<Board> boardList = client.boardsService.getMembersBoards(USER_NAME_DEFAULT).execute().body();
+        return client.listsService.getLists(boardList.get(FIRST_CARD_IN_LIST_NUMBER).id).execute().body();
+    }
+
+    public List<Card> getCardsListByListsNumber(int listNumber) throws IOException {
+        return client.cardService.getCards(getListOnBoardList().get(listNumber).id).execute().body();
+    }
+
+    public void moveCard() throws IOException {
+        moveBtn.click();
+        moveListSelect.selectDropDownByValue(getListOnBoardList().get(SECOND_LIST_ON_BOARD_NUMBER).id);
+        moveSubmitBtn.click();
+    }
+
+    public boolean checkThatCardMoved(String cardId) throws IOException {
+        return (getCardsListByListsNumber(SECOND_LIST_ON_BOARD_NUMBER).get(0).id.equals(cardId)
+                && getCardsListByListsNumber(FIRST_LIST_ON_BOARD_NUMBER).isEmpty());
+    }
+
+    public void copyCard() throws IOException {
+        copyBtn.click();
+
+        copyNameInput.type(COPIED_CARD_TITLE);
+        copySelect.selectDropDownByValue(getListOnBoardList().get(THIRD_LIST_ON_BOARD_NUMBER).id);
+        copyCreateCardBtn.click();
+    }
+
+    public boolean checkThatCardCopied(String cardId) throws IOException {
+        return (getCardsListByListsNumber(SECOND_LIST_ON_BOARD_NUMBER).get(FIRST_CARD_IN_LIST_NUMBER).id.equals(cardId)
+                && getCardsListByListsNumber(THIRD_LIST_ON_BOARD_NUMBER).get(FIRST_CARD_IN_LIST_NUMBER).name.equals(COPIED_CARD_TITLE));
+    }
+
+    public void sunscribeCard() {
+        sunscribeBtn.click();
+    }
+
+    public boolean getSunscribeStatusApi(String cardId) throws IOException {
+        getWebDriverWait(6)
+                .until(d-> {
+                    try {
+                        return !client.cardService.getCard(cardId).execute().body().subscribed;
+                    } catch (IOException e) {
+                        return false;
+                    }
+                });
+        return false;
+    }
+
+    public void archiveCard() {
+        archiveBtn.click();
+    }
+
+    public void unarchiveCard() {
+        unarchiveBtn.click();
+    }
+
+    public boolean getCardArchiveStatus(String cardId) throws IOException {
+        return client.cardService.getCard(cardId).execute().body().closed;
     }
 }

@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.util.ArrayList;
@@ -29,21 +30,19 @@ public class Elem {
 
     public void click() {
         getWebDriverWait(6)
-                .pollingEvery(ofMillis(500))
-                .ignoring(ElementNotVisibleException.class).ignoring(NoSuchElementException.class).ignoring(StaleElementReferenceException.class)
                 .until(ExpectedConditions.elementToBeClickable(by));
         driver().findElement(by).click();
     }
 
     public void type(String text) {
+        getWebDriverWait(6)
+                .until(ExpectedConditions.presenceOfElementLocated(by));
         driver().findElement(by).clear();
         driver().findElement(by).sendKeys(text);
     }
 
     public boolean isPresent(long seconds) {
-        Wait wait = getWebDriverWait(seconds)
-                .pollingEvery(ofMillis(500))
-                .ignoring(NoSuchElementException.class).ignoring(StaleElementReferenceException.class).ignoring(WebDriverException.class);
+        Wait wait = getWebDriverWait(seconds);
         try {
             wait.until(ExpectedConditions.presenceOfElementLocated(by));
             return true;
@@ -53,9 +52,7 @@ public class Elem {
     }
 
     public boolean isElementActive() {
-        Wait wait = getWebDriverWait(4)
-                .pollingEvery(ofMillis(500))
-                .ignoring(NoSuchElementException.class).ignoring(StaleElementReferenceException.class).ignoring(WebDriverException.class);
+        Wait wait = getWebDriverWait(4);
         try {
             wait.until(ExpectedConditions.presenceOfElementLocated(by));
             Actions actions = new Actions(driver());
@@ -101,4 +98,10 @@ public class Elem {
         Actions actions = new Actions(driver());
         actions.moveToElement(driver().findElement(by)).build().perform();
     }
+
+    public void selectDropDownByValue(String value) {
+        Select select = new Select(driver().findElement(by));
+        select.selectByValue(value);
+    }
+
 }

@@ -41,8 +41,10 @@ public class BrowserFactory {
         driver().get(url);
     }
 
-    public static WebDriverWait getWebDriverWait(long timeout) {
-        return new WebDriverWait(driver(), timeout);
+    public static FluentWait<WebDriver> getWebDriverWait(long timeout) {
+        return new WebDriverWait(driver(), timeout)
+                .pollingEvery(ofMillis(500))
+                .ignoring(ElementNotVisibleException.class).ignoring(NoSuchElementException.class).ignoring(StaleElementReferenceException.class);
     }
 
     public String getPageUrl() {

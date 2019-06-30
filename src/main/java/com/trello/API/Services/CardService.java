@@ -1,5 +1,6 @@
 package com.trello.API.Services;
 
+import com.trello.API.Models.Attachment;
 import com.trello.API.Models.Card;
 import com.trello.API.Models.CheckList;
 import com.trello.API.Models.Members;
@@ -31,4 +32,7 @@ public interface CardService {
 
     @GET("cards/{id}/checklists")
     Call<List<CheckList>> getChecklistList(@Path("id") String id);
+
+    @GET("cards/{id}/attachments")
+    Call<List<Attachment>> getAttachmentsList(@Path("id") String id);
 }

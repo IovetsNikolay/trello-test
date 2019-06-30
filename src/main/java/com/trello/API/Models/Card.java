@@ -11,6 +11,8 @@ public class Card {
     public String desc;
     public String due;
     public List<CardLabel> labels = new ArrayList<>();
+    public boolean subscribed;
+    public boolean closed;
 
     @Override
     public String toString() {
