@@ -1,4 +1,4 @@
-package HomeWorkTests;
+package Regression;
 
 import com.trello.API.Models.*;
 import com.trello.UI.Pages.BoardsListPage;
