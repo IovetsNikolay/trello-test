@@ -41,7 +41,7 @@ public class CardTest extends BrowserFactory {
     @Test(dependsOnMethods = "AddLabel")
     public void addCheckList() throws IOException {
         CheckList checklistCreatedUi = cardModal.addChecklist();
-        CheckList checklistFromApi  = cardModal.getCheckList(cardId);
+        CheckList checklistFromApi = cardModal.getCheckList(cardId);
         Assert.assertEquals(checklistCreatedUi, checklistFromApi, "Checklist created from UI is not equals API get checklist");
     }
 
@@ -96,5 +96,11 @@ public class CardTest extends BrowserFactory {
     public void postComment() throws IOException {
         cardModal.postComment();
         Assert.assertEquals(cardModal.getCommentCounter(cardId), 1, "Comment is not added on card");
+    }
+
+    @Test(dependsOnMethods = "postComment")
+    public void setDescription() throws IOException {
+        cardModal.setDescription();
+        Assert.assertEquals(cardModal.getDescription(cardId), DEFAULT_DESCRIPTION, "Correct description is not set");
     }
 }

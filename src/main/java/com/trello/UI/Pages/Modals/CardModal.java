@@ -60,6 +60,9 @@ public class CardModal {
     private Elem shareCloseBtn = new Elem(By.xpath("//a[@class='pop-over-header-close-btn icon-sm icon-close']"));
     private Elem commentTextArea = new Elem(By.xpath("//textarea[@class='comment-box-input js-new-comment-input']"));
     private Elem commentSaveBtn = new Elem(By.xpath("//input[@class='primary confirm mod-no-top-bottom-margin js-add-comment']"));
+    private Elem descTextInput = new Elem(By.xpath("//a[@class='description-fake-text-area hide-on-edit js-edit-desc js-hide-with-draft']"));
+    private Elem descTextArea = new Elem(By.xpath("//textarea[@class='field field-autosave js-description-draft description card-description']"));
+    private Elem descSaveBtn = new Elem(By.xpath("//input[@class='primary confirm mod-submit-edit js-save-edit']"));
 
     TrelloRestClient client = new TrelloRestClient();
 
@@ -238,4 +241,23 @@ public class CardModal {
     public int getCommentCounter(String cardId) throws IOException {
         return client.cardService.getCard(cardId).execute().body().badges.comments;
     }
+
+    public void setDescription() {
+        descTextInput.click();
+        descTextArea.type(DEFAULT_DESCRIPTION);
+        descSaveBtn.click();
+    }
+
+    public String getDescription(String cardId) throws IOException {
+        getWebDriverWait(6)
+                .until(d-> {
+                    try {
+                        return client.cardService.getCard(cardId).execute().body().desc.isEmpty();
+                    } catch (IOException e) {
+                        return false;
+                    }
+                });
+        return client.cardService.getCard(cardId).execute().body().desc;
+    }
+
 }

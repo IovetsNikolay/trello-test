@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Card {
-
     //    @SerializedName("1-DESC_#(%%%")
     public String name;
     public String id;

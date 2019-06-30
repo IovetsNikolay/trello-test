@@ -2,19 +2,14 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/main/java/com/trello/UI/core/Elem.java" line="27" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/trello/UI/Pages/Modals/CardModal.java" description="memberCloseBtn.click();" line="74" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/com/trello/UI/Pages/Modals/CardModal.java" description="memberCloseBtn.click();" line="77" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee47a35a-aa63-4a07-8e16-bd4b1844dbb7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trello/API/Models/Badges.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trello/API/Models/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trello/API/Models/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trello/UI/Pages/Modals/CardModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trello/UI/Pages/Modals/CardModal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/trello/UI/core/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/trello/UI/core/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/HomeWorkTests/CardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HomeWorkTests/CardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trello/API/Models/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trello/API/Models/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/trello/UI/Pages/Modals/CardModal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/trello/UI/Pages/Modals/CardModal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/HomeWorkTests/CardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/HomeWorkTests/CardTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/UI/core/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="51" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="51" />
+            <state relative-caret-position="374">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -41,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/UI/Pages/Modals/CardModal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="238" column="83" lean-forward="true" selection-start-line="238" selection-start-column="83" selection-end-line="238" selection-end-column="83" />
+            <state relative-caret-position="1099">
+              <caret line="252" column="28" lean-forward="true" selection-start-line="252" selection-start-column="28" selection-end-line="252" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7967#7968#0" expanded="true" />
@@ -59,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/API/Models/Card.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="17" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="17" />
+            <state relative-caret-position="374">
+              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -86,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/HomeWorkTests/CardTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+            <state relative-caret-position="367">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3-sources.jar!/org/testng/internal/MethodInvocationHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="123" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="-1989">
+              <caret line="137" column="44" lean-forward="true" selection-start-line="137" selection-start-column="44" selection-end-line="137" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -134,8 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/UI/core/Elem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-825">
-              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+            <state relative-caret-position="213">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2872#2873#0" expanded="true" />
@@ -225,10 +220,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/trello/API/Services/CardService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trello/UI/core/BrowserFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trello/UI/core/Elem.java" />
-        <option value="$PROJECT_DIR$/src/test/java/HomeWorkTests/CardTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/trello/API/Models/Badges.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trello/API/Models/Card.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trello/UI/core/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/trello/API/Models/Badges.java" />
+        <option value="$PROJECT_DIR$/src/test/java/HomeWorkTests/CardTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/trello/UI/Pages/Modals/CardModal.java" />
       </list>
     </option>
@@ -342,37 +337,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="trello" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trelloTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trelloTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="trello" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trelloTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trelloTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="trello" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trelloTest" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trelloTest" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="trello" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Modals" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trelloTest" type="b2602c69:ProjectViewProjectNode" />
@@ -562,24 +526,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CardTest - 2019.06.30 at 15h 26m 13s.xml">
-      <configuration name="CardTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="CardTest - 2019.06.30 at 15h 28m 55s.xml">
-      <configuration name="CardTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="CardTest - 2019.06.30 at 15h 30m 23s.xml">
-      <configuration name="CardTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="CardTest - 2019.06.30 at 15h 30m 51s.xml">
-      <configuration name="CardTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="CardTest - 2019.06.30 at 15h 35m 25s.xml">
-      <configuration name="CardTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="CardTest - 2019.06.30 at 15h 36m 17s.xml">
-      <configuration name="CardTest" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="CardTest - 2019.06.30 at 15h 36m 46s.xml">
       <configuration name="CardTest" configurationId="TestNG" />
     </history-entry>
@@ -592,10 +538,27 @@
     <history-entry file="CardTest - 2019.06.30 at 17h 08m 20s.xml">
       <configuration name="CardTest" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="CardTest - 2019.06.30 at 19h 23m 22s.xml">
+      <configuration name="CardTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="CardTest - 2019.06.30 at 19h 23m 58s.xml">
+      <configuration name="CardTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="CardTest - 2019.06.30 at 19h 53m 56s.xml">
+      <configuration name="CardTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="CardTest - 2019.06.30 at 19h 54m 30s.xml">
+      <configuration name="CardTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="CardTest - 2019.06.30 at 20h 07m 05s.xml">
+      <configuration name="CardTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="CardTest - 2019.06.30 at 20h 07m 39s.xml">
+      <configuration name="CardTest" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="60" y="-7" width="1451" height="1017" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23364486" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -658,9 +621,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/HomeWorkTests/CardTest.java</url>
-          <line>89</line>
+          <line>102</line>
           <properties />
-          <option name="timeStamp" value="67" />
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1112,33 +1075,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3-sources.jar!/org/testng/internal/MethodInvocationHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3-sources.jar!/org/testng/internal/Invoker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
           <caret line="592" selection-start-line="592" selection-end-line="592" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/UI/core/Elem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-825">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2872#2873#0" expanded="true" />
-            <element signature="e#2897#2898#0" expanded="true" />
-            <element signature="e#2939#2940#0" expanded="true" />
-            <element signature="e#2997#2998#0" expanded="true" />
-            <element signature="e#3054#3055#0" expanded="true" />
-            <element signature="e#3130#3131#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1158,30 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/HomeWorkTests/CardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/API/Models/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/UI/core/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="51" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/API/Models/Board.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1196,10 +1112,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/API/Models/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/UI/core/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/UI/core/Elem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2872#2873#0" expanded="true" />
+            <element signature="e#2897#2898#0" expanded="true" />
+            <element signature="e#2939#2940#0" expanded="true" />
+            <element signature="e#2997#2998#0" expanded="true" />
+            <element signature="e#3054#3055#0" expanded="true" />
+            <element signature="e#3130#3131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/HomeWorkTests/CardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3-sources.jar!/org/testng/internal/MethodInvocationHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1989">
+          <caret line="137" column="44" lean-forward="true" selection-start-line="137" selection-start-column="44" selection-end-line="137" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/trello/UI/Pages/Modals/CardModal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="238" column="83" lean-forward="true" selection-start-line="238" selection-start-column="83" selection-end-line="238" selection-end-column="83" />
+        <state relative-caret-position="1099">
+          <caret line="252" column="28" lean-forward="true" selection-start-line="252" selection-start-column="28" selection-end-line="252" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#7967#7968#0" expanded="true" />
