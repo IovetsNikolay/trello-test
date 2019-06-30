@@ -19,4 +19,6 @@ public class Constants {
     public static final int SECOND_LIST_ON_BOARD_NUMBER = 1;
     public static final int THIRD_LIST_ON_BOARD_NUMBER = 2;
     public static final int FIRST_CARD_IN_LIST_NUMBER = 0;
+    public static final String COMMENT_DEFAULT_TEXT = "Comment default text";
+
 }

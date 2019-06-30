@@ -74,6 +74,27 @@ public class CardTest extends BrowserFactory {
     @Test(dependsOnMethods = "copyCard")
     public void unsubscribeCard() throws IOException {
         cardModal.sunscribeCard();
-        Assert.assertFalse(cardModal.getSunscribeStatusApi(cardId));
+        Assert.assertFalse(cardModal.getSunscribeStatusApi(cardId), "Card becomes subscribed");
+    }
+
+    @Test(dependsOnMethods = "unsubscribeCard")
+    public void archiveCard() throws IOException {
+        cardModal.archiveCard();
+        Assert.assertTrue(cardModal.checkThatBoardArchived(cardId), "Card is not archived");
+        cardModal.unarchiveCard();
+        Assert.assertFalse(cardModal.checkThatBoardUnarchived(cardId), "Card stays archived");
+    }
+
+    @Test(dependsOnMethods = "archiveCard")
+    public void shareLink() throws IOException {
+        String shareLink = cardModal.getShareLink();
+        String currentUrl = getPageUrl();
+        Assert.assertTrue(currentUrl.contains(shareLink));
+    }
+
+    @Test(dependsOnMethods = "shareLink")
+    public void postComment() throws IOException {
+        cardModal.postComment();
+        Assert.assertEquals(cardModal.getCommentCounter(cardId), 1, "Comment is not added on card");
     }
 }

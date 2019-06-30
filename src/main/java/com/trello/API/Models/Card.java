@@ -13,6 +13,7 @@ public class Card {
     public List<CardLabel> labels = new ArrayList<>();
     public boolean subscribed;
     public boolean closed;
+    public Badges badges;
 
     @Override
     public String toString() {

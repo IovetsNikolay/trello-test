@@ -54,7 +54,12 @@ public class CardModal {
     private Elem copyCreateCardBtn = new Elem(By.xpath("//input[@class='primary wide js-submit']"));
     private Elem sunscribeBtn = new Elem(By.xpath("//a[@class='button-link toggle-button is-on js-unsubscribe']"));
     private Elem archiveBtn = new Elem(By.xpath("//a[@class='button-link js-archive-card']"));
-    private Elem unarchiveBtn = new Elem(By.xpath("//a[@class='button-link js-unarchive-card']']"));
+    private Elem unarchiveBtn = new Elem(By.xpath("//a[@class='button-link js-unarchive-card']"));
+    private Elem shareBtn = new Elem(By.xpath("//a[@class='button-link js-more-menu']"));
+    private Elem shareInput = new Elem(By.xpath("//input[@class='js-short-url js-autofocus']"));
+    private Elem shareCloseBtn = new Elem(By.xpath("//a[@class='pop-over-header-close-btn icon-sm icon-close']"));
+    private Elem commentTextArea = new Elem(By.xpath("//textarea[@class='comment-box-input js-new-comment-input']"));
+    private Elem commentSaveBtn = new Elem(By.xpath("//input[@class='primary confirm mod-no-top-bottom-margin js-add-comment']"));
 
     TrelloRestClient client = new TrelloRestClient();
 
@@ -194,7 +199,43 @@ public class CardModal {
         unarchiveBtn.click();
     }
 
-    public boolean getCardArchiveStatus(String cardId) throws IOException {
-        return client.cardService.getCard(cardId).execute().body().closed;
+    public boolean checkThatBoardArchived(String cardId) throws IOException {
+        getWebDriverWait(6)
+                .until(d-> {
+                    try {
+                        return client.cardService.getCard(cardId).execute().body().closed;
+                    } catch (IOException e) {
+                        return false;
+                    }
+                });
+        return true;
+    }
+
+    public boolean checkThatBoardUnarchived(String cardId) throws IOException {
+        getWebDriverWait(6)
+                .until(d-> {
+                    try {
+                        return !client.cardService.getCard(cardId).execute().body().closed;
+                    } catch (IOException e) {
+                        return false;
+                    }
+                });
+        return false;
+    }
+
+    public String getShareLink() {
+        shareBtn.click();
+        String shareLink = shareInput.getAttribute("value");
+        shareCloseBtn.click();
+        return shareLink;
+    }
+
+    public void postComment() {
+        commentTextArea.type(COMMENT_DEFAULT_TEXT);
+        commentSaveBtn.click();
+    }
+
+    public int getCommentCounter(String cardId) throws IOException {
+        return client.cardService.getCard(cardId).execute().body().badges.comments;
     }
 }
