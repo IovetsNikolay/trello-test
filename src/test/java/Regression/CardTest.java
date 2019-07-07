@@ -5,16 +5,20 @@ import com.trello.UI.Pages.BoardsListPage;
 import com.trello.UI.Pages.LoginPage;
 import com.trello.UI.Pages.Modals.CardModal;
 import com.trello.UI.core.BrowserFactory;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import static com.trello.UI.core.Constants.*;
 
+@Feature("Card Test")
 public class CardTest extends BrowserFactory {
 
     private CardModal cardModal = new CardModal();
     private String cardId;
+
 
     @BeforeTest
     public void login() throws IOException, InterruptedException {
@@ -24,6 +28,7 @@ public class CardTest extends BrowserFactory {
                 .openCard();
     }
 
+    @Story("Add Members")
     @Test
     public void addMembers() throws IOException {
         Members memberCreatedUi = cardModal.addMember();
@@ -103,4 +108,5 @@ public class CardTest extends BrowserFactory {
         cardModal.setDescription();
         Assert.assertEquals(cardModal.getDescription(cardId), DEFAULT_DESCRIPTION, "Correct description is not set");
     }
+
 }

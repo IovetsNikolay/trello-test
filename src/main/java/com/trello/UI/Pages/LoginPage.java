@@ -1,6 +1,7 @@
 package com.trello.UI.Pages;
 
 import com.trello.UI.core.Elem;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -25,6 +26,7 @@ public class LoginPage {
         return submitButton.isPresent(4);
     }
 
+    @Step ("Login with login:{email} and password:{password}")
     public BoardsListPage login(String email, String password) {
         userInput.type(email);
         passwordInput.type(password);

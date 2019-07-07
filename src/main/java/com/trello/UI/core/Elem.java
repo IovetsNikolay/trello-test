@@ -1,5 +1,6 @@
 package com.trello.UI.core;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,12 +29,14 @@ public class Elem {
         this.by = by;
     }
 
+    @Step
     public void click() {
         getWebDriverWait(6)
                 .until(ExpectedConditions.elementToBeClickable(by));
         driver().findElement(by).click();
     }
 
+    @Step
     public void type(String text) {
         getWebDriverWait(6)
                 .until(ExpectedConditions.presenceOfElementLocated(by));
@@ -99,6 +102,7 @@ public class Elem {
         actions.moveToElement(driver().findElement(by)).build().perform();
     }
 
+    @Step
     public void selectDropDownByValue(String value) {
         Select select = new Select(driver().findElement(by));
         select.selectByValue(value);
