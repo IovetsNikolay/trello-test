@@ -16,7 +16,7 @@ public class TryElem extends BrowserFactory {
 
     @Test
     public void elemTest() {
-        new LoginPage().open().login();
+        new LoginPage().autoLogin();
         List<Elem> elemList = personalBoardsElements.getElemList();
     }
 }

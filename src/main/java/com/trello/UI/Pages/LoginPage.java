@@ -1,9 +1,12 @@
 package com.trello.UI.Pages;
 
+import com.trello.API.AutoLogin.TrelloApiLogin;
 import com.trello.UI.core.Elem;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+
+import java.io.IOException;
 
 import static com.trello.UI.core.BrowserFactory.*;
 import static com.trello.UI.core.Constants.*;
@@ -39,4 +42,24 @@ public class LoginPage {
     public BoardsListPage login() {
         return login(LOGIN_DEFAULT, PASSWORD_DEFAULT);
     }
+
+    @Step
+    public BoardsListPage autoLogin(String email, String password) {
+        try {
+            new TrelloApiLogin().LoginByApi(email, password);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        BoardsListPage boardsListPage = new BoardsListPage();
+        Assert.assertTrue(boardsListPage.isOpened(), "Boards list page is not opened");
+        return boardsListPage;
+    }
+
+    public BoardsListPage autoLogin() {
+        return autoLogin(LOGIN_DEFAULT, PASSWORD_DEFAULT);
+    }
+
 }

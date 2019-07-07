@@ -12,7 +12,7 @@ public class LoginTest extends BrowserFactory {
         new LoginPage().open().login();
     }
 
-//    @Test (dependsOnMethods = "login")
+    @Test (dependsOnMethods = "login")
     public void logoutTest() {
         new BoardsListPage().logout();
     }

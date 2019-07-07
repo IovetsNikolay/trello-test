@@ -13,8 +13,8 @@ public class CreateBoardTest extends BrowserFactory {
 
         @Test
         public void CreateBoardTest() {
-            new LoginPage().open()
-                    .login()
+            new LoginPage()
+                    .autoLogin()
                     .createNewBoard()
                     .submitBoardCreate(BOARD_NAME);
         }

@@ -8,15 +8,15 @@ public class PrivatePublicBoardTest extends BrowserFactory {
 
     @Test
     public void privateBoardTest() {
-        new LoginPage().open().login()
+        new LoginPage().autoLogin()
                 .createNewBoard()
-                .submitBoardCreate("Privat Group")
+                .submitBoardCreate("Private Group")
                 .checkThatBoardIsPrivate();
     }
 
     @Test (dependsOnMethods = "privateBoardTest")
     public void publicBoardTest() {
-        new LoginPage().open().login()
+        new LoginPage().autoLogin()
                 .openBoard(1)
                 .checkThatBoardIsPublic();
     }

@@ -22,7 +22,8 @@ public class CardTest extends BrowserFactory {
 
     @BeforeTest
     public void login() throws IOException, InterruptedException {
-        cardId = new LoginPage().open().login()
+        cardId = new LoginPage()
+                .autoLogin()
                 .setUpCardApi();
         new BoardsListPage().openBoard(1)
                 .openCard();

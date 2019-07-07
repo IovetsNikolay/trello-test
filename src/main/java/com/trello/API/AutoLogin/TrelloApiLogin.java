@@ -1,4 +1,4 @@
-package Junk;
+package com.trello.API.AutoLogin;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -12,15 +12,12 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.Map;
 
-import static com.trello.UI.core.Constants.LOGIN_DEFAULT;
-import static com.trello.UI.core.Constants.PASSWORD_DEFAULT;
-
 public class TrelloApiLogin extends BrowserFactory {
     Gson gson = new Gson();
     CookieStrorage cookieStrorage = new CookieStrorage();
     OkHttpClient client = new OkHttpClient.Builder().cookieJar(cookieStrorage).build();
 
-    @Test
+//    @Test
     public void testCookie() throws IOException {
         client.newCall(new Request.Builder().url("https://trello.com").build()).execute().body().string();
         for (Cookie cookie : cookieStrorage.cookies) {
@@ -29,23 +26,27 @@ public class TrelloApiLogin extends BrowserFactory {
     }
 
     @Test
-    public void LoginByApi() throws IOException, InterruptedException {
+    public void LoginByApi(String login, String password) throws IOException, InterruptedException {
         FormBody formData = new FormBody.Builder()
-                .add("method", LOGIN_DEFAULT)
-                .add("factors[user]", PASSWORD_DEFAULT)
-                .add("factors[password]", "")       //Type your value
+                .add("method", "password")
+                .add("factors[user]", login)
+                .add("factors[password]", password)
                 .build();
-        Request request = new Request.Builder().url("Https://trello.com/1/authentification").post(formData).build();
+        Request request = new Request.Builder().url("https://trello.com/1/authentication").post(formData).build();
         String response = client.newCall(request).execute().body().string();
         Map<String, String> map = gson.fromJson(response, new TypeToken<Map<String,String>>(){}.getType());
         String code = map.get("code");
         System.out.println("CODE: " + code);
 
-
-        String dsc = cookieStrorage.cookies.stream().filter(cookie -> cookie.name().equals("dcs")).findFirst().get().value();
+        client.newCall(new Request.Builder().url("https://trello.com").build()).execute();
+        String dsc = cookieStrorage.cookies
+                .stream().filter(cookie -> cookie.name().equals("dsc"))
+                .findFirst()
+                .get()
+                .value();
         FormBody sessionFormData = new FormBody.Builder()
-                .add("authentification", code)
-                .add("dcs", dsc)
+                .add("authentication", code)
+                .add("dsc", dsc)
                 .build();
         Request requestSession = new Request.Builder().url("https://trello.com/1/authorization/session").post(sessionFormData).build();
         response = client.newCall(requestSession).execute().body().string();
@@ -58,6 +59,5 @@ public class TrelloApiLogin extends BrowserFactory {
             driver().manage().addCookie(seleniumCookie);
         }
         driver().navigate().refresh();
-        Thread.sleep(1000);
     }
 }

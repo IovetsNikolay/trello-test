@@ -9,7 +9,7 @@ public class FavoriteBoardsTest extends BrowserFactory {
 
     @Test
     private void favoriteBoardsTest() {
-        new LoginPage().open().login()
+        new LoginPage().autoLogin()
                 .makeBoardFavorite()
                 .makeBoardUnfavorite();
     }
