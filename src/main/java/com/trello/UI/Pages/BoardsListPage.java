@@ -16,6 +16,7 @@ import org.testng.Assert;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import static com.trello.UI.core.BrowserFactory.driver;
 import static com.trello.UI.core.Constants.*;
@@ -28,7 +29,7 @@ public class BoardsListPage {
     private static final String PATH = "/boards";
     TrelloRestClient client = new TrelloRestClient();
 
-    public Elem userDropdown = new Elem(By.xpath("//span[@class='sc-bxivhb kyMEvk']"));
+    public Elem userDropdown = new Elem(By.xpath("//button[contains(@class, 'js-open-header-member-menu')]"));
     public Elem logoutOptionDropdown = new Elem(By.xpath("//button[@data-test-id='header-member-menu-logout']"));
     public Elem createNewDeckBlock = new Elem(By.xpath("//div[@class='board-tile mod-add']"));
     public Elem favoritedBoardsTitles = new Elem(By.xpath("//span[@class='icon-lg icon-star']/../../..//div[@dir='auto']"));
@@ -122,4 +123,5 @@ public class BoardsListPage {
         Card card = client.cardService.createCard(TEST_CARD_NAME, listOnBoard.id).execute().body();
         return card.id;
     }
+
 }

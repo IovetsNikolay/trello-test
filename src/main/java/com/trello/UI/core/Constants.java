@@ -21,5 +21,6 @@ public class Constants {
     public static final int FIRST_CARD_IN_LIST_NUMBER = 0;
     public static final String COMMENT_DEFAULT_TEXT = "Comment default text";
     public static final String DEFAULT_DESCRIPTION = "Default description";
+    public static final String TEST_LIST_NAME_UI = "New Test List UI";
 
 }

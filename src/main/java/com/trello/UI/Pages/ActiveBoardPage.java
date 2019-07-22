@@ -7,15 +7,14 @@ import com.trello.API.TrelloRestClient;
 import com.trello.UI.Pages.Modals.CardModal;
 import com.trello.UI.core.Elem;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.trello.UI.core.BrowserFactory.driver;
-import static com.trello.UI.core.Constants.USER_NAME_DEFAULT;
+import static com.trello.UI.core.Constants.*;
 
 public class ActiveBoardPage {
 
@@ -37,6 +36,12 @@ public class ActiveBoardPage {
     public Elem addCardInput = new Elem(By.xpath("//textarea[@class='list-card-composer-textarea js-card-title']"));
     public Elem addCardSubmitBtn = new Elem(By.xpath("//input[@class='primary confirm mod-compact js-add-card']"));
     public Elem cardBlock = new Elem(By.xpath("//div[@class='list-card-details js-card-details']"));
+    public Elem listNames = new Elem(By.xpath("//h2[@class='list-header-name-assist js-list-name-assist']"));
+    public Elem listDropDown = new Elem(By.xpath("//a[contains(@class, 'list-header-extras-menu')]"));
+    public Elem copyListDropDown = new Elem(By.xpath("//a[@class='js-copy-list']"));
+    public Elem archiveListDropDown = new Elem(By.xpath("//a[@class='js-close-list']"));
+    public Elem copyListTextarea = new Elem(By.xpath("//textarea[@class='js-autofocus']"));
+    public Elem copyListSubmitBtn = new Elem(By.xpath("//input[@class='primary wide js-submit']"));
 
     TrelloRestClient client = new TrelloRestClient();
 
@@ -84,12 +89,36 @@ public class ActiveBoardPage {
     }
 
     public ActiveBoardPage addList() {
-        if (addListBtn.isPresent(2)) {
-            addListBtn.click();
-        }
-        addListInput.type("New Test List");
+        addListBtn.click();
+        addListInput.type(TEST_LIST_NAME_UI);
         addListSubmitBtn.click();
         return this;
+    }
+
+    public List<String> getTitleList() {
+        List<Elem> titleElemsList = listNames.getElemList();
+        List<String> titleList = new ArrayList<>();
+        for (Elem e : titleElemsList) {
+            titleList.add(e.getAttribute("innerHTML"));
+        }
+        return titleList;
+    }
+
+    public boolean isCheckListPresent(String listName) {
+        return getTitleList().contains(listName);
+    }
+
+    public ActiveBoardPage copyList() {
+        listDropDown.click();
+        copyListDropDown.click();
+        copyListTextarea.type(TEST_LIST_NAME_UI);
+        copyListSubmitBtn.click();
+        return this;
+    }
+
+    public void deleteList() {
+        listDropDown.click();
+        archiveListDropDown.click();
     }
 
     public ActiveBoardPage addCard() {

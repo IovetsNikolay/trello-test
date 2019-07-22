@@ -97,8 +97,8 @@ public class CardModal {
 
     public CardLabel getLabelApi (String cardId) throws IOException {
         Card card = client.cardService.getCard(cardId).execute().body();
-        List<CardLabel> labelList = card.labels;
-        return labelList.get(0);
+        getWebDriverWait(6).until(d-> card.labels.size() > 0);
+        return card.labels.get(0);
     }
 
     public CheckList addChecklist() {
@@ -111,7 +111,9 @@ public class CardModal {
     }
 
     public CheckList getCheckList(String cardId) throws IOException {
-        return client.cardService.getChecklistList(cardId).execute().body().get(0);
+        List<CheckList> checkLists = client.cardService.getChecklistList(cardId).execute().body();
+        getWebDriverWait(6).until(d-> checkLists.size() > 0);
+        return checkLists.get(0);
     }
 
     public void addDueDate() {
@@ -141,7 +143,9 @@ public class CardModal {
     }
 
     public Attachment getAttachmentApi(String cardId) throws IOException {
-        return client.cardService.getAttachmentsList(cardId).execute().body().get(0);
+        List<Attachment> attachments = client.cardService.getAttachmentsList(cardId).execute().body();
+        getWebDriverWait(6).until(d-> attachments.size() > 0);
+        return attachments.get(0);
     }
 
 
@@ -167,7 +171,6 @@ public class CardModal {
 
     public void copyCard() throws IOException {
         copyBtn.click();
-
         copyNameInput.type(COPIED_CARD_TITLE);
         copySelect.selectDropDownByValue(getListOnBoardList().get(THIRD_LIST_ON_BOARD_NUMBER).id);
         copyCreateCardBtn.click();
@@ -239,7 +242,9 @@ public class CardModal {
     }
 
     public int getCommentCounter(String cardId) throws IOException {
-        return client.cardService.getCard(cardId).execute().body().badges.comments;
+        int commentsCounter = client.cardService.getCard(cardId).execute().body().badges.comments;
+        getWebDriverWait(6).until(d-> commentsCounter > 0);
+        return commentsCounter;
     }
 
     public void setDescription() {

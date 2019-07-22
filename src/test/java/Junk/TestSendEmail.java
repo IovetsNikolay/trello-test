@@ -13,12 +13,12 @@ public class TestSendEmail {
         Email email = new SimpleEmail(); // Create Object
         email.setHostName("smtp.googlemail.com"); // Set SMTP hostname
         email.setSmtpPort(465); // Set port
-        email.setAuthenticator(new DefaultAuthenticator("iovets.mykola@pdffiller.team", "feedwteks")); // Set email/password
+        email.setAuthenticator(new DefaultAuthenticator("iovetsnikolay@gmail.com", "feedwteks2019")); // Set email/password
         email.setSSLOnConnect(true); // SSL true
-        email.setFrom("iovets.mykola@pdffiller.team"); // set FROM
-        email.setSubject("iovets.mykola@pdffiller.team"); // set Subject
+        email.setFrom("iovetsnikolay@gmail.com"); // set FROM
+        email.setSubject("Some subj"); // set Subject
         email.setMsg("This is a test mail ... :-)"); // Set message
-        email.addTo("iovets.mykola+1@pdffiller.team"); // Set recipients
+        email.addTo("iovets.mykola@pdffiller.team"); // Set recipients
         email.send(); // Send Email
     }
 }

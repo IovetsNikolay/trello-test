@@ -23,6 +23,7 @@ public class BrowserFactory {
 
     @BeforeTest
     public void setUp() throws IOException {
+        System.setProperty("webdriver.chrome.driver", "C:/webDrivers/chromedriver.exe");
         driver = new ChromeDriver();
         driver = new EventFiringWebDriver(driver).register(new BrowserListener());
 //        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
